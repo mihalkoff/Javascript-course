@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 2</title>
+		<script type="text/javascript">
+			function getMax(int1, int2){
+				if(int1>=int2){
+					return int1;
+				} else {
+					return int2;
+				}
+			}
+		
+			function printBiggest(){
+				var number1=parseInt(document.getElementById("number1").value);
+				var number2=parseInt(document.getElementById("number2").value);
+				var number3=parseInt(document.getElementById("number3").value);
+				
+				var biggest=getMax(number1, number2);
+				biggest=getMax(biggest, number3);
+				document.getElementById("writeBox").innerHTML = ("The biggest number is: "+biggest);
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a function GetMax with two parameters that returns the bigger of two integers. Write a script that reads 3 integers and prints the biggest of them using the function GetMax.
+			</strong>
+		</p>
+		Enter number1:
+		<br/>
+		<input type="text" id="number1">
+		<br/>
+		Enter number2:
+		<br/>
+		<input type="text" id="number2">
+		<br/>
+		Enter number3:
+		<br/>
+		<input type="text" id="number3">
+		<br/>
+		<input type="submit" onclick="printBiggest()">
+		<br/>
+		<br/>
+		<div id="writeBox"></div>
+	</body>
+</html>

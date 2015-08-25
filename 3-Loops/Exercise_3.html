@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 3</title>
+		<script type="text/javascript">
+			function findMaxMin(){
+				var str = document.getElementById("sequence").value;
+				var numbers = str.split(" ");
+				var min=parseFloat(numbers[0]);
+				var max=parseFloat(numbers[0]);
+				for(var i=0; i<numbers.length; i++){
+					if(parseFloat(numbers[i])>max){
+						max=numbers[i];
+					}
+					if(parseFloat(numbers[i])<min){
+						min=numbers[i];
+					}
+				}
+				document.write("max = "+max+"<br/>"+"min = "+min);
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that finds the max and min number from a sequence of numbers.
+			</strong>
+		</p>
+		Enter numbers with space between them:
+		<br/>
+		<input type="text" id="sequence">
+		<input type="submit" onclick="findMaxMin()">
+	</body>
+</html>

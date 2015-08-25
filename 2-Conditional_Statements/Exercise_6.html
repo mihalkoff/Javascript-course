@@ -1,0 +1,45 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 6</title>
+		<script type="text/javascript">
+			function findRoots(){
+				var a = parseFloat(document.getElementById("numA").value);     
+				var b = parseFloat(document.getElementById("numB").value);     
+				var c = parseFloat(document.getElementById("numC").value);  
+				var x1;
+				var x2;
+				if(a==0){
+					document.write("a can't be 0, try again :)");
+				} else {
+					x1=(-b+Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+					x2=(-b-Math.sqrt(Math.pow(b,2)-4*a*c))/(2*a);
+					document.write("x1="+x1);
+					document.write("<br/>x2="+x2);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that enters the coefficients a, b and c of a quadratic equation: a*x<sup>2</sup>+b*x+c=0 and calculates and prints its real roots. Note that quadratic equations may have 0, 1 or 2 real roots.
+			</strong>
+		</p>
+		Enter a:
+		<br/>
+		<input type="text" id="numA">
+		<br/>
+		Enter b:
+		<br/>
+		<input type="text" id="numB">
+		<br/>
+		Enter c:
+		<br/>
+		<input type="text" id="numC">
+		<br/>
+		<br/>
+		<input type="submit" onclick="findRoots()">
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 1</title>
+		<style>
+			#trash-bin{
+				width: 128px; 
+				height: 128px;
+				background: url(img/bin-closed.png) no-repeat;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			#trash-window{
+				position: relative;
+				margin-left: 20px;
+				width: 400px;
+				height: 400px;
+				background-color: #00c100;
+			}
+			.trash{
+				position: absolute;
+				width: 64px; 
+				height: 64px; 
+				background: url(img/trash.png) no-repeat;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="trash-window">
+			<div id="trash-bin"></div>
+		</div>
+		<script>
+			function allowDrop(ev) {
+				ev.preventDefault();
+				ev.target.style.backgroundImage = "url(img/bin-opened.png)";
+			}
+			function drag(ev) {
+				ev.dataTransfer.setData("text", ev.target.id);
+			}
+			function drop(ev) {
+				ev.preventDefault();
+				var data = ev.dataTransfer.getData("text");
+				var draggedItem = document.getElementById(data);
+				draggedItem.parentNode.removeChild(draggedItem);
+				ev.target.style.backgroundImage = "url(img/bin-closed.png)";
+			}
+			function leave(ev){
+				ev.target.style.backgroundImage = "url(img/bin-closed.png)";
+			}
+			
+			var trashWindow = document.getElementById("trash-window");
+			var trash=null;
+			var x;
+			var y;
+			for (var i = 0; i < 5; i++) {
+                trash = document.createElement("div");
+                trash.className = "trash";
+				trash.id="trash"+i;
+                trash.setAttribute("draggable", "true");
+                x = Math.round(Math.random() * 200+128);
+                y = Math.round(Math.random() * 300);
+                trash.setAttribute("style", "top:" + y + "px; left:" + x + "px;");
+				trash.addEventListener("dragstart", drag, false);
+				trashWindow.appendChild(trash);
+            }
+			
+			var trashBin = document.getElementById("trash-bin");
+			trashBin.addEventListener("dragover", allowDrop, false);
+			trashBin.addEventListener("drop", drop, false);
+			trashBin.addEventListener("dragleave", leave, false);
+		</script>
+	</body>
+</html>

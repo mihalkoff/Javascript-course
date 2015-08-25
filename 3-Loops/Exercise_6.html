@@ -1,0 +1,42 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 6</title>
+		<script type="text/javascript">
+			function calculate(){
+				var N = parseInt(document.getElementById("numN").value);
+				var X = parseInt(document.getElementById("numX").value);
+				var sum=1;
+				var factN=1;
+				if(N==0 && (X>=0 || X<0)){
+					document.write("S = 1");
+				} else if(N>0 && (X>0 || X<0)){
+					for(var i=1; i<=N; i++){
+						factN*=i;
+						sum+=factN/Math.pow(X,i);
+					}
+					document.write("S = "+sum);
+				} else {
+					document.write("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that, for a given two integer numbers N and X, calculates the sum S = 1 + 1!/X + 2!/X<sup>2</sup> + … + N!/X<sup>N</sup>.
+			</strong>
+		</p>
+		Enter N:
+		<br/>
+		<input type="text" id="numN">
+		<br/>
+		Enter X:
+		<br/>
+		<input type="text" id="numX">
+		<br/>
+		<input type="submit" onclick="calculate()">
+	</body>
+</html>

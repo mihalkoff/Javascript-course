@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 4</title>
+		<script type="text/javascript">
+			function checkNumber(){
+				var num = parseInt(document.getElementById("number").value);
+				if((parseInt(num/100)-7)%10==0){
+					document.write("Third digit is 7");
+				} else {
+					document.write("Third digit isn't 7");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write an expression that checks for given integer if its third digit (right-to-left) is 7.
+			</strong>
+		</p>
+		<input type="text" id="number">
+		<input type="submit" onclick="checkNumber()">
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 8</title>
+		<script type="text/javascript">
+			function calculateArea() {
+				var a = parseFloat(document.getElementById("sideA").value);
+				var b = parseFloat(document.getElementById("sideB").value);;
+				var h = parseFloat(document.getElementById("height").value);;
+				var area = (a + b)*h/2;
+				document.write(area);	
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write an expression that calculates trapezoid's area by given sides a and b and height h.
+			</strong>
+		</p>
+		Enter side a:
+		<input type="text" id="sideA">
+		<br/>
+		Enter side b:
+		<input type="text" id="sideB">
+		<br/>
+		Enter height h:
+		<input type="text" id="height">
+		<br/>
+		<input type="submit" onclick="calculateArea()">
+	</body>
+</html>

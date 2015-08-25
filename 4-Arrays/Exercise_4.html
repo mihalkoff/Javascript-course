@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 4</title>
+		<script type="text/javascript">
+			function findSequence(){
+				var str = document.getElementById("array1").value;
+				var arr = str.split(" ");
+				var start=0;
+				var len=1;
+				var startArray = new Array();
+				var lenArray = new Array();
+				var count=0;
+				for(var j in arr){
+					if(arr[j]=="" || !(arr[j]>=0 || arr[j]<=9)){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				if(count==1){
+					for(var i=1;i<arr.length;i++){
+						if(parseInt(arr[i])!=parseInt(arr[i-1])+1){
+							startArray.push(start);
+							lenArray.push(len);
+							start=i;
+							len=1;
+						} else {
+							len++;
+						}
+					}
+					startArray.push(start);
+					lenArray.push(len);
+					var maxLength=Math.max.apply(Math, lenArray);
+					document.write("The array is: ["+arr+" ]<br/>");
+					document.write("The maximal increasing sequence is: ");
+					for(var j=0;j<lenArray.length;j++){
+						if(lenArray[j]==maxLength){
+							document.write("[ ");
+							for(var k=0;k<maxLength;k++){
+								document.write(arr[startArray[j]+k]+" ");
+							}
+							document.write("]  ");
+						}
+					}
+				} else {
+					document.write("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that finds the maximal increasing sequence in an array.
+			</strong>
+		</p>
+		Enter the array with space between elements:
+		<br/>
+		<input type="text" id="array1">
+		<br/>
+		<input type="submit" value="GO" onclick="findSequence()">
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 7</title>
+		<script type="text/javascript">
+			function orderBy(a,b){
+				return (a == b)? 0 : (a>b)? 1: -1
+			};
+			
+			function binarySearch(){
+				var str = document.getElementById("array1").value;
+				var element= parseInt(document.getElementById("element").value);
+				var arr = str.split(" ");
+				var count=0;
+				var iMin=0;
+				var iMax=arr.length-1;
+				var iMid;
+				var index=null;
+					
+				for(var j in arr){
+					if((arr[j]=="" || !(arr[j]>=0 && arr[j]<=9))){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				if(count==1 && element!="" && element>=0 && element<=9){
+					//Initial sort of the array
+					arr.sort(orderBy);
+					//Binary search
+					while(iMin<=iMax){
+						iMid=parseInt(iMin+(iMax-iMin)/2);
+						if(element>arr[iMid]){
+							iMin=iMid+1;
+						} else if(element<arr[iMid]){
+							iMax=iMid-1;
+						} else {
+							index=iMid;
+							break;
+						}
+					}
+					if(index!=null){
+						document.write("The index of the element is: "+index);
+					} else {
+						document.write("No such element!");
+					}
+				} else {
+					document.write("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a program that finds the index of given element in a sorted array of integers by using the binary search algorithm.
+			</strong>
+		</p>
+		Enter the array with space between elements:
+		<br/>
+		<input type="text" id="array1">
+		<br/>
+		Enter element:
+		<br/>
+		<input type="text" id="element">
+		<br/>
+		<input type="submit" value="GO" onclick="binarySearch()">
+	</body>
+</html>

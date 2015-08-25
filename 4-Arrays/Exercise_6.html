@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 6</title>
+		<script type="text/javascript">
+			function orderBy(a,b){
+				return (a == b)? 0 : (a>b)? 1: -1
+			};
+				
+			function findNumber(){
+				var str = document.getElementById("array1").value;
+				var arr = str.split(" ");
+				var start=0;
+				var len=1;
+				var startArray = new Array();
+				var lenArray = new Array();
+				var count=0;
+					
+				for(var j in arr){
+					if(arr[j]=="" || !(arr[j]>=0 && arr[j]<=9)){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				if(count==1){
+					//Initial sort of the array
+					arr.sort(orderBy);
+					//Find the maximal sequence of equal numbers
+					for(var i=1;i<arr.length;i++){
+						if(arr[i-1]!=arr[i]){
+							startArray.push(start);
+							lenArray.push(len);
+							start=i;
+							len=1;
+						} else {
+							len++;
+						}
+					}
+					startArray.push(start);
+					lenArray.push(len);
+					var maxLength=Math.max.apply(Math, lenArray);
+					document.write("The most frequent ("+maxLength+" times) are the numbers:<br/>");
+					for(var j=0;j<lenArray.length;j++){
+						if(lenArray[j]==maxLength){
+							document.write(arr[startArray[j]]+"<br/>");
+						}
+					}
+				} else {
+					document.write("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a program that finds the most frequent number in an array.
+			</strong>
+		</p>
+		Enter the array with space between elements:
+		<br/>
+		<input type="text" id="array1">
+		<br/>
+		<input type="submit" value="GO" onclick="findNumber()">
+	</body>
+</html>

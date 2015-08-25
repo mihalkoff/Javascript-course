@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 5</title>
+		<script type="text/javascript">
+			function checkDigit(){
+				var num = parseInt(document.getElementById("digit").value);     
+				switch(num){
+					case 0: document.write("zero"); break;
+					case 1: document.write("one"); break;
+					case 2: document.write("two"); break;
+					case 3: document.write("three"); break;
+					case 4: document.write("four"); break;
+					case 5: document.write("five"); break;
+					case 6: document.write("six"); break;
+					case 7: document.write("seven"); break;
+					case 8: document.write("eight"); break;
+					case 9: document.write("nine"); break;
+					default: document.write("It's not a digit :)"); break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write script that asks for a digit and depending on the input shows the name of that digit (in English) using a switch statement.
+			</strong>
+		</p>
+		Enter digit:
+		<input type="text" id="digit">
+		<input type="submit" onclick="checkDigit()">
+	</body>
+</html>

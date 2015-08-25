@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 5</title>
+		<script type="text/javascript">
+			function sortArray(){
+				var str = document.getElementById("array1").value;
+				var arr = str.split(" ");
+				var count=0;
+				var minArray=new Array();
+				for(var j in arr){
+					if(arr[j]=="" || !(arr[j]>=0 && arr[j]<=9)){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				if(count==1){
+					while(arr.length){
+						var minElement=Math.min.apply(Math, arr);
+						minElement=minElement.toString();
+						minArray.push(minElement);
+						arr.splice(arr.indexOf(minElement),1);
+					}
+					document.write("The sorted array is: ["+minArray+"]");
+				} else {
+					document.write("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script to sort an array. Use the "selection sort" algorithm.
+			</strong>
+		</p>
+		Enter the array with space between elements:
+		<br/>
+		<input type="text" id="array1">
+		<br/>
+		<input type="submit" value="GO" onclick="sortArray()">
+	</body>
+</html>

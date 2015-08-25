@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 10</title>
+		<script type="text/javascript">
+			function checkBit(){
+				var v = parseInt(document.getElementById("number").value);     
+				var p = parseInt(document.getElementById("position").value);
+				var mask = 1 << p;        
+				var vAndMask = v & mask;  
+				var bit = vAndMask >> p;  
+				if(bit) {
+					document.write("The digit is 1.");
+				} else {
+					document.write("The digit is 0.");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a boolean expression that returns if the bit at position p (counting from 0) in a given integer number v has value of 1.
+			</strong>
+		</p>
+		Enter a number v:
+		<br/>
+		<input type="text" id="number">
+		<br/>
+		Enter the position p to check its bit:
+		<br/>
+		<input type="text" id="position">
+		<br/>
+		<input type="submit" onclick="checkBit()">
+	</body>
+</html>

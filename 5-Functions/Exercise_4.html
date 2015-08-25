@@ -1,0 +1,60 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 4</title>
+		<script type="text/javascript">
+			function countNumber(number,fArr){
+				var numberCount=0;
+				for(var i in fArr){
+					if(fArr[i]==number){
+						numberCount++;
+					}
+				}
+				return numberCount;
+			}
+		
+			function start(){
+				var str = document.getElementById("array").value;
+				var arr = str.split(" ");
+				var num=parseInt(document.getElementById("number").value);
+				num=num.toString();
+				var count=0;
+
+				for(var j in arr){
+					if(arr[j]==""){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				
+				if(count==1 && num!=""){
+					document.getElementById("writeBox").innerHTML = ("In array ["+arr+"] number "+num+" appears "+countNumber(num,arr)+" times!");
+				} else {
+					document.getElementById("writeBox").innerHTML = ("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a function that counts how many times given number appears in given array. Write a test script to check if the function is working correctly.
+			</strong>
+		</p>
+		Enter the array with space between elements:
+		<br/>
+		<input type="text" id="array">
+		<br/>
+		Enter number:
+		<br/>
+		<input type="text" id="number">
+		<br/>
+		<input type="submit" onclick="start()">
+		<br/>
+		<br/>
+		<div id="writeBox"></div>
+	</body>
+</html>

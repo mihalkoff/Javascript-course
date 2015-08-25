@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 5</title>
+		<script type="text/javascript">
+			function checkNumber(){
+				var p = 3;
+				var num = parseInt(document.getElementById("number").value);              
+				var mask = 1 << p;        
+				var nAndMask = num & mask;  
+				var bit = nAndMask >> p;  
+				if(bit) {
+					document.write("Third bit is 1.");
+				} else {
+					document.write("Third bit is 0.");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a boolean expression for finding if the bit 3 (counting from 0) of a given integer is 1 or 0.
+			</strong>
+		</p>
+		<input type="text" id="number">
+		<input type="submit" onclick="checkNumber()">
+	</body>
+</html>

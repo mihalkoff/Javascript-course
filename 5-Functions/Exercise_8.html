@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 8</title>
+		<script type="text/javascript">
+			function addNumbers(arr1,arr2){
+				var sumF=new Array();
+				var remainder=0;
+				for(var k=0;k<arr1.length;k++){
+					sumF[k]=(parseInt(arr1[k])+parseInt(arr2[k])+remainder)%10;
+					if((parseInt(arr1[k])+parseInt(arr2[k])+remainder)<10){
+						remainder=0;
+					} else {
+						remainder=1;
+					}
+				}
+				if(remainder==1){
+					sumF.push(1);
+				}
+				return sumF;
+			}
+		
+			function start(){
+				var num1 = parseInt(document.getElementById("number1").value);
+				var num2 = parseInt(document.getElementById("number2").value);
+
+				if(!isNaN(num1) && !isNaN(num2) && num1>=0 && num2>=0){
+					num1=num1.toString();
+					num1=num1.split("");
+					num1.reverse();
+					num2=num2.toString();
+					num2=num2.split("");
+					num2.reverse();
+					var x=(num1.length-num2.length);
+					var y=(num2.length-num1.length);
+					if(num1.length>num2.length){
+						for(var i=0;i<x;i++){
+							num2.push("0");
+						}
+					} else if(num1.length<num2.length){
+						for(var j=0;j<y;j++){
+							num1.push("0");
+						}
+					}
+					if(num1.length<=10000){
+						var sum=new Array();
+						sum=addNumbers(num1,num2);
+						sum.reverse();
+						sum=sum.join("");
+						document.getElementById("writeBox").innerHTML = (sum);
+					} else {
+						document.getElementById("writeBox").innerHTML = ("Try again :)");
+					}
+				} else {
+					document.getElementById("writeBox").innerHTML = ("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a function that adds two positive integer numbers represented as arrays of digits.
+			</strong>
+		</p>
+		Enter number1:
+		<br/>
+		<input type="text" id="number1">
+		<br/>
+		Enter number2:
+		<br/>
+		<input type="text" id="number2">
+		<br/>
+		<input type="submit" onclick="start()">
+		<br/>
+		<br/>
+		<div id="writeBox"></div>
+	</body>
+</html>

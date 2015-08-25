@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 9</title>
+		<script type="text/javascript">
+			function pronounce(){
+				var num = document.getElementById("number").value;
+				var digit = ['zero','one','two','three','four','five','six','seven','eight','nine'];
+				var teens = ['','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+				var tenths = ['','ten','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+				if(num!=0){
+					num = num.replace(/^0+/, '');
+				}
+				num = parseInt(num);
+				num = num.toString();
+				if (num>=0 && num<=999){
+					if(num.length==1){
+						document.write(digit[num[0]]);
+					}
+					if(num.length==2){
+						if(num[1]==0){
+							document.write(tenths[num[0]]);
+						} else {
+							if(num[0]==1){
+								document.write(teens[num[1]]);
+							} else {
+								document.write(tenths[num[0]]+' '+digit[num[1]]);
+							}
+						}
+					}
+					if(num.length==3){
+						if(num[1]==0 && num[2]==0){
+							document.write(digit[num[0]]+' hundred');
+						} else {
+							if(num[2]==0){
+								document.write(digit[num[0]]+' hundred and '+tenths[num[1]]);
+							} else {
+								if(num[1]==1){
+									document.write(digit[num[0]]+' hundred and '+teens[num[2]]);
+								} else {
+									document.write(digit[num[0]]+' hundred and '+tenths[num[1]]+' '+digit[num[2]]);
+								}
+							}
+						}
+					}
+				} else {
+					document.write("Number is not in the range or it is not a number, try again!");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation.
+			</strong>
+		</p>
+		Enter number [0...999]:
+		<input type="text" id="number">
+		<input type="submit" onclick="pronounce()">
+	</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 3</title>
+		<script type="text/javascript">
+			function findBiggest(){
+				var num1 = parseInt(document.getElementById("number1").value);     
+				var num2 = parseInt(document.getElementById("number2").value); 
+				var num3 = parseInt(document.getElementById("number3").value);
+				if(num1>=num2 && num1>=num3){
+					document.write(num1+' is the biggest!');
+				} else if(num2>=num1 && num2>=num3){
+					document.write(num2+' is the biggest!');
+				} else {
+					document.write(num3+' is biggest!');
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that finds the biggest of three integers using nested if statements.
+			</strong>
+		</p>
+		Enter number1:
+		<input type="text" id="number1">
+		<br/>
+		Enter number2:
+		<input type="text" id="number2">
+		<br/>
+		Enter number3:
+		<input type="text" id="number3">
+		<br/>
+		<br/>
+		<input type="submit" onclick="findBiggest()">
+	</body>
+</html>

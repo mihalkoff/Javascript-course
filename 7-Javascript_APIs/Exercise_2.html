@@ -1,0 +1,180 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 2</title>
+	</head>
+	<body>
+		<canvas id="bike-canvas" width="400" height="300">Your browser doesn't support canvas!</canvas>
+		<canvas id="head-canvas" width="400" height="300"></canvas>
+		<script>
+		
+			/********** Bike *****************************************/
+			
+			var canvasBikeCtx = document.getElementById("bike-canvas").getContext("2d");
+			canvasBikeCtx.strokeStyle = "black";
+			canvasBikeCtx.lineWidth = 2;
+			
+			//Back wheel
+			canvasBikeCtx.moveTo(120, 200);
+			canvasBikeCtx.arc(70, 200, 50, 0, Math.PI*2, false);
+			canvasBikeCtx.fillStyle = "lightblue";
+			canvasBikeCtx.fill();
+			canvasBikeCtx.closePath();
+			canvasBikeCtx.stroke();
+			
+			//Front wheel
+			canvasBikeCtx.beginPath();
+			canvasBikeCtx.moveTo(300, 200);
+			canvasBikeCtx.arc(250, 200, 50, 0, Math.PI*2, false);
+			canvasBikeCtx.fillStyle = "yellow";
+			canvasBikeCtx.fill();
+			canvasBikeCtx.closePath();
+			canvasBikeCtx.stroke();
+			
+			//Frame
+			canvasBikeCtx.beginPath();
+			canvasBikeCtx.strokeStyle = "red";
+			canvasBikeCtx.moveTo(70, 200);
+			canvasBikeCtx.lineTo(160, 200);
+			canvasBikeCtx.lineTo(230, 130);
+			canvasBikeCtx.lineTo(120, 130);
+			canvasBikeCtx.lineTo(70, 200);
+			canvasBikeCtx.moveTo(160, 200);
+			canvasBikeCtx.lineTo(110, 110);
+			
+			//Fork
+			canvasBikeCtx.moveTo(250, 200);
+			canvasBikeCtx.lineTo(220, 90);
+			canvasBikeCtx.closePath();
+			canvasBikeCtx.stroke();
+			
+			//Pedals wheel
+			canvasBikeCtx.beginPath();
+			canvasBikeCtx.strokeStyle = "black";
+			canvasBikeCtx.moveTo(170, 200);
+			canvasBikeCtx.arc(160, 200, 10, 0, Math.PI*2, false);
+			
+			//Seat
+			canvasBikeCtx.moveTo(90, 110);
+			canvasBikeCtx.lineTo(130, 110);
+			
+			//Pedals
+			canvasBikeCtx.moveTo(168, 207);
+			canvasBikeCtx.lineTo(178, 217);
+			canvasBikeCtx.moveTo(153, 193);
+			canvasBikeCtx.lineTo(142, 182);
+			
+			//Handle
+			canvasBikeCtx.moveTo(180, 95);
+			canvasBikeCtx.lineTo(220, 90);
+			canvasBikeCtx.moveTo(250, 60);
+			canvasBikeCtx.lineTo(220, 90);
+			canvasBikeCtx.stroke();
+			
+			
+			/********** Head *****************************************/
+			
+			var canvasHeadCtx = document.getElementById("head-canvas").getContext("2d");
+			canvasHeadCtx.strokeStyle = "black";
+			canvasHeadCtx.lineWidth = 2;
+			
+			//Face
+			canvasHeadCtx.moveTo(260, 200);
+			canvasHeadCtx.arc(200, 200, 60, 0, Math.PI*2, false);
+			canvasHeadCtx.fillStyle = "pink";
+			canvasHeadCtx.fill();
+
+			//Nose
+			canvasHeadCtx.moveTo(190, 180);
+			canvasHeadCtx.lineTo(180, 210);
+			canvasHeadCtx.moveTo(180, 210);
+			canvasHeadCtx.lineTo(192, 210);
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Mouth
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.moveTo(165, 230);
+			canvasHeadCtx.bezierCurveTo(165, 220, 205, 230, 205, 240);
+			canvasHeadCtx.bezierCurveTo(205, 250, 165, 240, 165, 230);
+			canvasHeadCtx.fillStyle = "white";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Left eye
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.moveTo(160, 180);
+			canvasHeadCtx.bezierCurveTo(160, 172, 180, 172, 180, 180);
+			canvasHeadCtx.bezierCurveTo(180, 187, 160, 187, 160, 180);
+			canvasHeadCtx.fillStyle = "white";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Left eye - iris
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.moveTo(167, 176);
+			canvasHeadCtx.bezierCurveTo(164, 176, 164, 184, 167, 184);
+			canvasHeadCtx.bezierCurveTo(170, 184, 170, 176, 167, 176);
+			canvasHeadCtx.fillStyle = "blue";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Right eye
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.moveTo(200, 180);
+			canvasHeadCtx.bezierCurveTo(200, 172, 220, 172, 220, 180);
+			canvasHeadCtx.bezierCurveTo(220, 187, 200, 187, 200, 180);
+			canvasHeadCtx.fillStyle = "white";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Right eye - iris
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.moveTo(207, 176);
+			canvasHeadCtx.bezierCurveTo(204, 176, 204, 184, 207, 184);
+			canvasHeadCtx.bezierCurveTo(210, 184, 210, 176, 207, 176);
+			canvasHeadCtx.fillStyle = "blue";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Hat - low part
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.moveTo(120, 150);
+			canvasHeadCtx.bezierCurveTo(120, 170, 280, 170, 280, 150);
+			canvasHeadCtx.bezierCurveTo(280, 130, 120, 130, 120, 150);
+			canvasHeadCtx.fillStyle = "red";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Hat - middle part
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.moveTo(165, 60);
+			canvasHeadCtx.lineTo(165, 136);
+			canvasHeadCtx.bezierCurveTo(165, 156, 240, 156, 240, 136);
+			//canvasHeadCtx.bezierCurveTo(240, 116, 165, 116, 165, 136);
+			canvasHeadCtx.lineTo(240, 60);
+			canvasHeadCtx.fillStyle = "orange";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+			
+			//Hat - high part
+			canvasHeadCtx.beginPath();
+			canvasHeadCtx.lineTo(240, 60);
+			canvasHeadCtx.bezierCurveTo(240, 40, 165, 40, 165, 60);
+			canvasHeadCtx.bezierCurveTo(165, 80, 240, 80, 240, 60);
+			canvasHeadCtx.fillStyle = "yellow";
+			canvasHeadCtx.fill();
+			canvasHeadCtx.closePath();
+			canvasHeadCtx.stroke();
+
+		</script>
+	</body>
+</html>

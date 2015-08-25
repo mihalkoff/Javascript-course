@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 7</title>
+		<script type="text/javascript">
+			function reverseNumber(){
+				var num = parseInt(document.getElementById("number").value);
+
+				if(!isNaN(num)){
+					num=num.toString();
+					num=num.split("");
+					num.reverse();
+					document.getElementById("writeBox").innerHTML = (num.join(""));
+				} else {
+					document.getElementById("writeBox").innerHTML = ("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a function that reverses the digits of given decimal number.
+			</strong>
+		</p>
+		Enter decimal number:
+		<br/>
+		<input type="text" id="number">
+		<br/>
+		<input type="submit" onclick="reverseNumber()">
+		<br/>
+		<br/>
+		<div id="writeBox"></div>
+	</body>
+</html>

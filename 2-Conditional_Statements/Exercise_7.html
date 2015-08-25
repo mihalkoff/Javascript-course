@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 7</title>
+		<script type="text/javascript">
+			function findBiggest(){
+				var num1 = parseFloat(document.getElementById("number1").value);     
+				var num2 = parseFloat(document.getElementById("number2").value); 
+				var num3 = parseFloat(document.getElementById("number3").value);
+				var num4 = parseFloat(document.getElementById("number4").value);
+				var num5 = parseFloat(document.getElementById("number5").value);
+				if(num1>=num2 && num1>=num3 && num1>=num4 && num1>=num5){
+					document.write(num1+' is the biggest!');
+				} else if(num2>=num1 && num2>=num3 && num2>=num4 && num2>=num5){
+					document.write(num2+' is the biggest!');
+				} else if(num3>=num1 && num3>=num2 && num3>=num4 && num3>=num5){
+					document.write(num3+' is the biggest!');
+				} else if(num4>=num1 && num4>=num2 && num4>=num3 && num4>=num5){
+					document.write(num4+' is the biggest!');
+				} else if(num5>=num1 && num5>=num2 && num5>=num3 && num5>=num4){
+					document.write(num5+' is the biggest!');
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that finds the greatest of given 5 variables.
+			</strong>
+		</p>
+		Enter number1:
+		<input type="text" id="number1">
+		<br/>
+		Enter number2:
+		<input type="text" id="number2">
+		<br/>
+		Enter number3:
+		<input type="text" id="number3">
+		<br/>
+		Enter number4:
+		<input type="text" id="number4">
+		<br/>
+		Enter number5:
+		<input type="text" id="number5">
+		<br/>
+		<br/>
+		<input type="submit" onclick="findBiggest()">
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 1</title>
+		<script type="text/javascript">
+			function compareNumbers() {
+				var c;
+				var a = parseInt(document.getElementById("number1").value);     
+				var b = parseInt(document.getElementById("number2").value); 
+				if(a>b) {
+					c=a;
+					a=b;
+					b=c;
+				}
+				document.write(a+" "+b);
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write an if statement that examines two integer variables and exchanges their values if the first one is greater than the second one.
+			</strong>
+		</p>
+		Enter number1:
+		<input type="text" id="number1">
+		<br/>
+		Enter number2:
+		<input type="text" id="number2">
+		<br/>
+		<br/>
+		<input type="submit" onclick="compareNumbers()">
+	</body>
+</html>

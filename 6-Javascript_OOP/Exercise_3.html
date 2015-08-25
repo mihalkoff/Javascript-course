@@ -1,0 +1,86 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 3</title>
+		<script type="text/javascript">
+		
+			//class Shape
+			var Shape = function(width, height){
+				this.width = width;
+				this.height = height;
+				
+				this.calculateSurface = function(){
+					return this.width*this.height;
+				}
+			}
+			
+			//class Triangle, inheriting Shape class
+			function Triangle(width, height){  
+				Shape.apply(this, arguments);
+				var self = this;
+				
+				self.calculateSurface = function(){
+					return self.width*self.height/2;
+				}
+				return self;
+			}  
+			Triangle.prototype = new Shape();  
+			Triangle.prototype.constructor = Triangle;  
+			
+			//class Rectangle, inheriting Shape class
+			function Rectangle(width, height){  
+				
+				Shape.apply(this, arguments);
+				var self = this;
+				
+				self.calculateSurface = function(){
+					return self.width*self.height;
+				}
+				return self;
+			}  
+			Rectangle.prototype = new Shape();  
+			Rectangle.prototype.constructor = Rectangle;	
+
+			//class Circle, inheriting Shape class
+			function Circle(radius){  
+				
+				Shape.apply(this, arguments);
+				var self = this;
+				
+				self.width=radius;
+				self.height=radius;
+				
+				self.calculateSurface = function(){
+					return Math.PI*self.width*self.height;
+				}
+				return self;
+			}  
+			Circle.prototype = new Shape();  
+			Circle.prototype.constructor = Circle;			
+		
+			function start(){
+				//objects triangle, rectangle, circle
+				var triangle1 = new Triangle(5,1);
+				var triangle2 = new Triangle(5,2);
+				var rectangle1 = new Rectangle(5,1);
+				var rectangle2 = new Rectangle(5,2);
+				var circle1 = new Circle(1);
+				var circle2 = new Circle(2);
+				
+				var shapes = [triangle1,triangle2,rectangle1,rectangle2,circle1,circle2];
+				for(var i in shapes){
+					console.log(shapes[i].calculateSurface());
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Define abstract class Shape with only one method calculateSurface() and fields width and height. Define two new classes Triangle and Rectangle that implement the method and return the surface of the figure (height*width for rectangle and height*width/2 for triangle). Define class Circle and suitable constructor so that on initialization height must be kept equal to width and implement the calculateSurface() method. Write a program that tests the behavior of  the calculateSurface() method for different shapes (Circle, Rectangle, Triangle) stored in an array.
+			</strong>
+		</p>
+		<input type="button" value="Start" onclick="start()">
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 1</title>
+		<script type="text/javascript">
+			function writeName(){
+				var name = prompt("Enter your name!");
+				var count=0;
+				for(var i in name){
+					if(name[i]=="" || (name[i]>=0 && name[i]<=9)){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				if(count==1){
+					document.getElementById("writeBox").innerHTML = ("Hello, "+name+"!");
+				} else {
+					document.getElementById("writeBox").innerHTML = ("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a function that asks the user for his name and prints “Hello, name”.
+			</strong>
+		</p>
+		<input type="submit" value="Start function" onclick="writeName()">
+		<br/>
+		<br/>
+		<div id="writeBox"></div>
+	</body>
+</html>

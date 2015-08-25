@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 3</title>
+		<script type="text/javascript">
+			function calculateArea(){
+				var area;
+				var w = parseFloat(document.getElementById("width").value);
+				var h = parseFloat(document.getElementById("height").value);
+				area = w*h;
+				document.write(area);
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write an expression that calculates rectangle’s area by given width and height.
+			</strong>
+		</p>
+		Input width:
+		<input type="text" id="width">
+		<br/>
+		<br/>
+		Input height:
+		<input type="text" id="height">
+		<br/>
+		<br/>
+		<input type="submit" onclick="calculateArea()">
+	</body>
+</html>

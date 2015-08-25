@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 1</title>
+		<script type="text/javascript">
+		
+			//class Human
+			var Human = function(cName, cGender, cAddress, cPhone){
+				this.name = cName;
+				this.gender = cGender;
+				this.address = cAddress;
+				this.phone = cPhone;
+				
+				this.sayName = function(){
+					document.write("Hi, I am "+this.name+"!<br/>");
+				}
+				this.sayGender = function(){
+					document.write("I am "+this.gender+"!<br/>");
+				}
+				this.sayAddress = function(){
+					document.write("I live at "+this.address+"!<br/>");
+				}
+				this.sayPhone = function(){
+					document.write("My phone number is: "+this.phone+"!");
+				}
+			}
+			
+			function start(){
+				var name = document.getElementById("name").value;
+				var gender = document.getElementById("gender").value;
+				var address = document.getElementById("address").value;
+				var phone = document.getElementById("phone").value;
+				
+				//object human
+				var human = new Human(name,gender,address,phone);
+				if(name && gender && address && phone){
+					human.sayName();
+					human.sayGender();
+					human.sayAddress();
+					human.sayPhone();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Implement a class Human, having name, gender, address, telephone number. It should have methods for introducing himself (ex. "Hi I am ...!", "I am ...years old!").
+			</strong>
+		</p>
+		Write your name:
+		<br/>
+		<input type="text" id="name">
+		<br/>
+		Write your gender:
+		<br/>
+		<input type="text" id="gender">
+		<br/>
+		Write your address:
+		<br/>
+		<input type="text" id="address">
+		<br/>
+		Write your phone:
+		<br/>
+		<input type="text" id="phone">
+		<br/>
+		<input type="button" value="Start" onclick="start()">
+	</body>
+</html>

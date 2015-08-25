@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 4</title>
+		<script type="text/javascript">
+			function calculate(){
+				var N = parseInt(document.getElementById("numN").value);
+				var K = parseInt(document.getElementById("numK").value);
+				var result;
+				var factN=1;
+				var factK=1;
+				if(N>1 && K>N){
+					for(var i=1; i<=N; i++){
+						factN*=i;
+					}
+					for(var i=1; i<=K; i++){
+						factK*=i;
+					}
+					result=factN/factK;
+					document.write("N!/K! = "+result);
+				} else {
+					document.write("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that calculates N!/K! for given N and K (1&lt;N&lt;K).
+			</strong>
+		</p>
+		Enter N:
+		<br/>
+		<input type="text" id="numN">
+		<br/>
+		Enter K:
+		<br/>
+		<input type="text" id="numK">
+		<br/>
+		<input type="submit" onclick="calculate()">
+	</body>
+</html>

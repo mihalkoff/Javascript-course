@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 2</title>
+		<script type="text/javascript">
+			function showSign(){
+				var a = parseFloat(document.getElementById("number1").value);     
+				var b = parseFloat(document.getElementById("number2").value); 
+				var c = parseFloat(document.getElementById("number3").value); 
+				if(a!=0 && b!=0 && c!=0){
+					if((a>0 && b>0 && c>0) || (a>0 && b<0 && c<0) || (a<0 && b>0 && c<0) || (a<0 && b<0 && c>0)){
+						document.write("The product is +");
+					} else {
+						document.write("The product is -");
+					} 
+				} else {
+					document.write("The product is 0!");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that shows the sign (+ or -) of the product of three real numbers without calculating it. Use a sequence of if statements.
+			</strong>
+		</p>
+		Enter number1:
+		<input type="text" id="number1">
+		<br/>
+		Enter number2:
+		<input type="text" id="number2">
+		<br/>
+		Enter number3:
+		<input type="text" id="number3">
+		<br/>
+		<br/>
+		<input type="submit" onclick="showSign()">
+	</body>
+</html>

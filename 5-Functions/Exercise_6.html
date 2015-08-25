@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 6</title>
+		<script type="text/javascript">
+			function checkElement(fArr){
+				for(var i=0;i<fArr.length;i++){
+					if(i==0){
+						if(fArr[0]>fArr[1]){
+							return i;
+						}
+					} else if(i==(fArr.length-1)){
+						if(fArr[i]>fArr[i-1]){
+							return i;
+						}
+					} else {
+						if(fArr[i]>fArr[i-1] && fArr[i]>fArr[i+1]){
+							return i;
+						}
+					}
+				}
+				return -1;
+			}		
+		
+			function start(){
+				var str = document.getElementById("array").value;
+				var arr = str.split(" ");
+				var count=0;
+				for(var j in arr){
+					if(arr[j]==""){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				
+				if(count==1){
+					if(checkElement(arr)!=-1){
+						document.getElementById("writeBox").innerHTML = ("The element at position "+checkElement(arr)+" is the first bigger than its neighbours!");
+					} else {
+						document.getElementById("writeBox").innerHTML = ("There is no such element");
+					}
+				} else {
+					document.getElementById("writeBox").innerHTML = ("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a Function that returns the index of the first element in array that is bigger than its neighbours, or -1, if there’s no such element.
+			</strong>
+		</p>
+		Enter the array with space between elements:
+		<br/>
+		<input type="text" id="array">
+		<br/>
+		<input type="submit" onclick="start()">
+		<br/>
+		<br/>
+		<div id="writeBox"></div>
+	</body>
+</html>

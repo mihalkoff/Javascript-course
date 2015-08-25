@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 6</title>
+		<script type="text/javascript">
+			function checkPoint(){
+				var x = parseFloat(document.getElementById("xpoint").value);    
+				var y = parseFloat(document.getElementById("ypoint").value);   
+				var r = Math.sqrt(Math.pow(x,2)+Math.pow(y,2));
+				if(r<=5) {
+					document.write("The point "+"("+x+","+y+")"+" is in the circle!")
+				} else {
+					document.write("The point "+"("+x+","+y+")"+" isn't in the circle!")
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write an expression that checks if given point (x,  y) is within a circle K(O, 5).
+			</strong>
+		</p>
+		Enter x:
+		<input type="text" id="xpoint">
+		<br/>
+		Enter y:
+		<input type="text" id="ypoint">
+		<br/>
+		<br/>
+		<input type="submit" onclick="checkPoint()">
+	</body>
+</html>

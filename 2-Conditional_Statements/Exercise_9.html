@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 9</title>
+		<script type="text/javascript">
+			function checkDigit(){
+				var num = parseInt(document.getElementById("digit").value);     
+				switch(num){
+					case 0: document.write("Error!"); break;
+					case 1: 
+					case 2: 
+					case 3: num*=10; document.write(num); break;
+					case 4: 
+					case 5: 
+					case 6: num*=100; document.write(num); break;
+					case 7: 
+					case 8: 
+					case 9: num*=1000; document.write(num); break;
+					default: document.write("Error!"); break;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that applies bonus scores to given scores in the range [1..9]. The program reads a digit as an input. If the digit is between 1 and 3, the program multiplies it by 10; if it is between 4 and 6, multiplies it by 100; if it is between 7 and 9, multiplies it by 1000. If it is zero or if the value is not a digit, the script must report an error. Use a switch statement and at the end print the calculated new value in the console.
+			</strong>
+		</p>
+		Enter digit:
+		<input type="text" id="digit">
+		<input type="submit" onclick="checkDigit()">
+	</body>
+</html>

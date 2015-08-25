@@ -1,0 +1,111 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 2</title>
+		<script type="text/javascript">
+		
+			//class Human
+			var Human = function(cName, cGender, cAddress, cPhone){
+				
+				this.name = cName;
+				this.gender = cGender;
+				this.address = cAddress;
+				this.phone = cPhone;
+				
+				this.sayName = function(){
+					console.log("Hi, I am "+this.name+"!<br/>");
+				}
+				this.sayGender = function(){
+					console.log("I am "+this.gender+"!<br/>");
+				}
+				this.sayAddress = function(){
+					console.log("I live at "+this.address+"!<br/>");
+				}
+				this.sayPhone = function(){
+					console.log("My phone number is: "+this.phone+"!");
+				}
+			}
+			
+			//class Student, inheriting Human class
+			function Student(cName, cGender, cAddress, cPhone, cSchool,cMarks){  
+				
+				
+				Human.apply(this, arguments);
+				var self = this;
+
+				self.school=cSchool;
+				self.marks=cMarks;
+				
+				self.countAverageMark = function(){
+					var averageMark=0;
+					for(var i=0;i<self.marks.length;i++){
+						averageMark+=self.marks[i];
+					}
+					return (averageMark/self.marks.length);
+				}
+				self.addRemoveMark = function(index,remove,mark){
+					self.marks.splice(index,remove,mark);
+					console.log("New marks of "+self.name+" are: "+self.marks+"!");
+				}
+				return self;
+			}  
+			Student.prototype = new Human();  
+			Student.prototype.constructor = Student;  
+			
+			//class Parent, inheriting Human class
+			function Parent(cName, cGender, cAddress, cPhone, cChildrenList){  
+				
+				Human.apply(this, arguments);
+				var self = this;
+				self.childrenList = cChildrenList;
+				
+				self.yellAtChild = function(yellChild){
+					for(var j=0;j<self.childrenList.length;j++){
+						if(self.childrenList[j].name==yellChild){
+							if(self.childrenList[j].countAverageMark()<=4){
+								console.log("Why are you so stupid, "+self.childrenList[j].name+"?");
+								break;
+							} else{
+								console.log("You are very clever, "+self.childrenList[j].name+"!");
+								break;
+							}
+						}
+					}
+				}
+				return self;
+			}  
+			Parent.prototype = new Human();  
+			Parent.prototype.constructor = Parent;		
+		
+			function start(){
+				//objects student1, student2, student3, student4
+				var student1 = new Student("Ivan","male","Lozenec","101","1 SOU",[3,6,3]);
+				var student2 = new Student("Maria","female","Lozenec","102","1 SOU",[5,6,5]);
+				var student3 = new Student("Joro","male","Mladost","201","5 SOU",[6,5,6]);
+				var student4 = new Student("Lili","female","Mladost","202","5 SOU",[4,5,6]);
+				
+				var childrenList1 = [student1,student2];
+				var childrenList2 = [student3,student4];
+				
+				//objects parent1, parent2
+				var parent1 = new Parent("Peter","male","Lozenec","100",childrenList1);
+				var parent2 = new Parent("Gosho","male","Mladost","200",childrenList2);
+				
+				console.log(student3.countAverageMark());
+				student2.addRemoveMark(2,0,5);
+				parent1.yellAtChild("Ivan");
+				parent2.yellAtChild("Maria");
+				parent2.yellAtChild("Lili");
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Implement classes Student and Parent inheriting the Human class.
+			</strong>
+		</p>
+		<input type="button" value="Start" onclick="start()">
+	</body>
+</html>

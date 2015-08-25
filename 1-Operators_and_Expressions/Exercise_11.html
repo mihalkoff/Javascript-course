@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 10</title>
+		<script type="text/javascript">
+			function checkBit(){
+				var i = parseInt(document.getElementById("number").value);     
+				var b = parseInt(document.getElementById("bitNumber").value);
+				var mask = 1 << b;        
+				var iAndMask = i & mask;  
+				var bit = iAndMask >> b;  
+				if(bit) {
+					document.write("The digit is 1.");
+				} else {
+					document.write("The digit is 0.");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			Write an expression that extracts from a given integer i the value of a given bit number b.
+		</p>
+		Enter the number "i":
+		<br/>
+		<input type="text" id="number">
+		<br/>
+		Enter the bit number "b":
+		<br/>
+		<input type="text" id="bitNumber">
+		<br/>
+		<input type="submit" onclick="checkBit()">
+	</body>
+</html>

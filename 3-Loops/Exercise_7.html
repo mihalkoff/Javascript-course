@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 7</title>
+		<script type="text/javascript">
+			function calculate(){
+				var N = parseInt(document.getElementById("numN").value);
+				var member1 = 0;
+				var member2 = 1;
+				var member3;
+				var sum=1;
+				if(N>0){
+					if(N==1){
+						document.write("S = 0");
+					} else if(N==2){
+						document.write("S = 1");
+					} else {
+						for (var i=3; i<=N; i++){
+							member3 = member1 + member2;
+							member1 = member2;
+							member2 = member3;	
+							sum += member3;
+						}
+						document.write("S = "+sum);
+					}
+				} else {
+					document.write("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a script that reads a number N and calculates the sum of the first N members of the sequence of Fibonacci.
+			</strong>
+		</p>
+		Enter N:
+		<br/>
+		<input type="text" id="numN">
+		<input type="submit" onclick="calculate()">
+	</body>
+</html>

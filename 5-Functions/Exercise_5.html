@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html>
+	<head>
+		<title>Exercise 5</title>
+		<script type="text/javascript">
+			function checkElement(fPosition, fArr){
+				if(fPosition==0){
+					if(fArr[0]>fArr[1]){
+						return 1;
+					} else {
+						return 0;
+					}
+				} else if(fPosition==(fArr.length-1)){
+					if(fArr[fPosition]>fArr[fPosition-1]){
+						return 1;
+					} else {
+						return 0;
+					}
+				} else {
+					if(fArr[fPosition]>fArr[fPosition-1] && fArr[fPosition]>fArr[fPosition+1]){
+						return 1;
+					} else {
+						return 0;
+					}
+				}
+			}		
+		
+			function start(){
+				var str = document.getElementById("array").value;
+				str=str.replace(/^\s+|\s+$/g,'');
+				var arr = str.split(",");
+				var position=parseInt(document.getElementById("index").value);
+				var count=0;
+				for(var j in arr){
+					if(arr[j]==""){
+						count=0; 
+						break;
+					} else {
+						count=1;
+					}
+				}
+				
+				for(var i in arr){
+					arr[i]=parseInt(arr[i]);
+				}
+
+				if(count==1 && !isNaN(position) && position>=0 && position<=arr.length-1){
+					if(checkElement(position,arr)==1){
+						document.getElementById("writeBox").innerHTML = ("The number is bigger than its neighbours!");
+					} else {
+						document.getElementById("writeBox").innerHTML = ("The number is not bigger than its neighbours!");
+					}
+				} else {
+					document.getElementById("writeBox").innerHTML = ("Try again :)");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+			<strong>
+				Write a function that checks if the element at given position in given array of integers is bigger than its two neighbours (when such exist).
+			</strong>
+		</p>
+		Enter the array with comma between elements:
+		<br/>
+		<input type="text" id="array">
+		<br/>
+		Enter position of the element:
+		<br/>
+		<input type="text" id="index">
+		<br/>
+		<input type="submit" onclick="start()">
+		<br/>
+		<br/>
+		<div id="writeBox"></div>
+	</body>
+</html>
